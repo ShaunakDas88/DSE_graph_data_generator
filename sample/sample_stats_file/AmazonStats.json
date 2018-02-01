@@ -1,0 +1,52 @@
+{
+    "edge_stats": [
+        {
+            "distribution": {
+                "name": "gaussian",
+                "parameters": {
+                    "variance": 40
+                }
+            },
+            "edge_label": "reviewed",
+            "from": "Customer",
+            "to": "Item"
+        },
+        {
+            "distribution": {
+                "name": "uniform",
+                "parameters": {
+                    "lower": 0,
+                    "upper": 3
+                }
+            },
+            "edge_label": "has_salesRank",
+            "from": "Item",
+            "to": "Category"
+        },
+        {
+            "distribution": {
+                "name": "power",
+                "parameters": {
+                    "decay_constant": 2
+                }
+            },
+            "edge_label": "purchased_with",
+            "from": "Item",
+            "to": "Item"
+        }
+    ],
+    "vertex_stats": [
+        {
+            "count": 500,
+            "vertex_label": "Customer"
+        },
+        {
+            "count": 5000,
+            "vertex_label": "Item"
+        },
+        {
+            "count": 25,
+            "vertex_label": "Category"
+        }
+    ]
+}

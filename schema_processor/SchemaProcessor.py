@@ -17,7 +17,7 @@ class SchemaProcessor():
 		cls.vertex_schema_lines = []
 		cls.edge_schema_lines = []
 
-	def build_propertykey_map(self):
+	def build_propertykey_dict(self):
 		# example: schema.propertyKey('reviewText').Text().single().create()
 		for line in self.propertykey_schema_lines:
 			pieces = line.split(".")
@@ -51,7 +51,7 @@ class SchemaProcessor():
 #		from pprint import pprint
 #		pprint(self.propertykey_map)
 
-	def build_vertexlabel_and_edgelabel_maps(self):
+	def build_vertexlabel_and_edgelabel_dicts(self):
 		# example: 
 		for line in self.vertex_schema_lines:
 			pieces = line.split(".")
@@ -107,8 +107,8 @@ class SchemaProcessor():
 					self.edge_schema_lines.append(line)
 		schema_file.close()
 
-	def build_schema_maps(self):
+	def build_schema_element_dicts(self):
 		self.separate_schema_lines()
-		self.build_propertykey_map()
-		self.build_vertexlabel_and_edgelabel_maps()
+		self.build_propertykey_dict()
+		self.build_vertexlabel_and_edgelabel_dicts()
 		return self.propertykey_map, self.vertexlabel_map, self.edgelabel_map
